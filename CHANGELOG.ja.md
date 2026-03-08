@@ -3,6 +3,10 @@
 このファイルは `CHANGELOG.md` の日本語版です。  
 Issue / Pull Request / コミットへのリンクやバージョン番号は原文に合わせて維持しています。
 
+## 1.16.4 - 2026-03-08
+* ATEZJP フォーク向けの公開メタデータを反映し、Marketplace の説明文と README 冒頭を日本語優先に調整。
+* Marketplace 再公開のため、拡張バージョンを更新。
+
 ## 1.16.3 - 2023-06-16
 * [#356] 新機能: 全プロファイルへのアップロードを追加（Pull Request [#313](https://github.com/Natizyskunk/vscode-sftp/pull/313) by @wewawa）。
 * [#357] 修正: Typo `avaliable` を `available` に修正（Pull Request [#343](https://github.com/Natizyskunk/vscode-sftp/pull/343) by @kjo-sdds）。

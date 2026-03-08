@@ -1,3 +1,7 @@
+## 1.16.4 - 2026-03-08
+* Publish the ATEZJP fork metadata with Japanese-first Marketplace text and README messaging.
+* Bump the extension version for Marketplace republishing.
+
 ## 1.16.3 - 2023-06-16
 * [#356] New Feature : Upload to all profiles (Pull request [#313](https://github.com/Natizyskunk/vscode-sftp/pull/313) from @wewawa vscode-sftp:create_multi_command).
 * [#357] Fix : Correcting Typo 'avaliable' => 'available' (Pull request [#343](https://github.com/Natizyskunk/vscode-sftp/pull/343) from @kjo-sdds vscode-sftp:develop).
