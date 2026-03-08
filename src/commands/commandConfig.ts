@@ -9,6 +9,7 @@ import {
   addWorkspaceFolder,
 } from '../host';
 import { checkCommand } from './abstract/createCommand';
+import { localize } from '../i18n';
 
 export default checkCommand({
   id: COMMAND_CONFIG,
@@ -17,9 +18,9 @@ export default checkCommand({
     const workspaceFolders = getWorkspaceFolders();
     if (!workspaceFolders) {
       const result = await showConfirmMessage(
-        'SFTP expects to work at a folder.',
-        'Open Folder',
-        'Ok'
+        localize('message.sftpExpectsFolder', 'SFTP expects to work at a folder.'),
+        localize('button.openFolder', 'Open Folder'),
+        localize('button.ok', 'Ok')
       );
 
       if (!result) {
@@ -31,9 +32,9 @@ export default checkCommand({
 
     if (workspaceFolders.length <= 0) {
       const result = await showConfirmMessage(
-        'There are no available folders in current workspace.',
-        'Add Folder to Workspace',
-        'Ok'
+        localize('message.noAvailableFolders', 'There are no available folders in current workspace.'),
+        localize('button.addFolderToWorkspace', 'Add Folder to Workspace'),
+        localize('button.ok', 'Ok')
       );
 
       if (!result) {
@@ -67,7 +68,7 @@ export default checkCommand({
 
     vscode.window
       .showQuickPick(initDirs, {
-        placeHolder: 'Select a folder...',
+        placeHolder: localize('prompt.selectFolder', 'Select a folder...'),
       })
       .then(item => {
         if (item === undefined) {

@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { EXTENSION_NAME } from './constants';
+import { localize } from './i18n';
 
 export function getOpenTextDocuments(): vscode.TextDocument[] {
   return vscode.workspace.textDocuments;
@@ -85,8 +86,8 @@ export function showWarningMessage(message: string, ...items: string[]) {
 
 export async function showConfirmMessage(
   message: string,
-  confirmLabel: string = 'Yes',
-  cancelLabel: string = 'No'
+  confirmLabel: string = localize('confirm.yes', 'Yes'),
+  cancelLabel: string = localize('confirm.no', 'No')
 ) {
   const result = await vscode.window.showInformationMessage(
     message,

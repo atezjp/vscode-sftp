@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { COMMAND_SET_PROFILE } from '../constants';
 import { showInformationMessage } from '../host';
+import { localize } from '../i18n';
 import app from '../app';
 import logger from '../logger';
 import { getAllFileService } from '../modules/serviceManager';
@@ -35,7 +36,7 @@ export default checkCommand({
     );
 
     if (profiles.length <= 1) {
-      showInformationMessage('No Available Profile.');
+      showInformationMessage(localize('message.noAvailableProfile', 'No Available Profile.'));
       return;
     }
 
@@ -50,7 +51,7 @@ export default checkCommand({
       return;
     }
 
-    const item = await vscode.window.showQuickPick(profiles, { placeHolder: 'select a profile' });
+    const item = await vscode.window.showQuickPick(profiles, { placeHolder: localize('prompt.selectProfile', 'select a profile') });
     if (item === undefined) return;
     app.state.profile = item.value;
   },

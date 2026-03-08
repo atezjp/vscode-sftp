@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { FileSystem, FileType } from '../core';
 import * as path from 'path';
+import { localize } from '../i18n';
 
 const ROOT = '@root';
 
@@ -78,7 +79,7 @@ async function showFiles<T extends FileListChildItem>(
     });
 
   const result = await vscode.window.showQuickPick(items, {
-    placeHolder: 'Select a target...',
+    placeHolder: localize('prompt.selectTarget', 'Select a target...'),
   });
 
   if (result === undefined) {

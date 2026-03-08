@@ -1,21 +1,23 @@
 {
   "name": "sftp",
-  "displayName": "SFTP",
-  "description": "SFTP/FTP sync",
+  "displayName": "%extension.displayName%",
+  "description": "%extension.description%",
   "version": "1.16.3",
-  "publisher": "Natizyskunk",
+  "publisher": "ATEZJP",
   "author": "Natizyskunk <natan.fourie@hotmail.fr> (https://github.com/Natizyskunk)",
+  "contributors": [
+    "ATEZJP (fork maintainer)"
+  ],
   "engines": {
     "vscode": "^1.64.2"
   },
   "bugs": {
-    "url": "https://github.com/Natizyskunk/vscode-sftp/issues",
-    "email": "natan.fourie@hotmail.fr"
+    "url": "https://github.com/atezjp/vscode-sftp/issues"
   },
-  "homepage": "https://github.com/Natizyskunk/vscode-sftp/blob/master/README.md",
+  "homepage": "https://github.com/atezjp/vscode-sftp/blob/master/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Natizyskunk/vscode-sftp.git"
+    "url": "https://github.com/atezjp/vscode-sftp.git"
   },
   "license": "MIT",
   "categories": [
@@ -38,7 +40,7 @@
       "activitybar": [
         {
           "id": "sftp",
-          "title": "SFTP",
+          "title": "%view.activitybar.title%",
           "icon": "resources/remote-explorer.svg"
         }
       ]
@@ -47,62 +49,62 @@
       "sftp": [
         {
           "id": "remoteExplorer",
-          "name": "Explorer",
+          "name": "%view.remoteExplorer.name%",
           "when": "sftp.enabled"
         }
       ]
     },
     "configuration": {
       "type": "object",
-      "title": "sftp configuration",
+      "title": "%config.title%",
       "properties": {
         "sftp.printDebugLog": {
           "type": "boolean",
           "default": false,
-          "description": "print debug log on sftp output channel.(reload vscode when change this)"
+          "description": "%config.printDebugLog%"
         },
         "sftp.debug": {
           "type": "boolean",
           "default": false,
-          "description": "print debug log on sftp output channel.(reload vscode when change this)"
+          "description": "%config.debug%"
         },
         "sftp.downloadWhenOpenInRemoteExplorer": {
           "type": "boolean",
           "default": false,
-          "description": "\"Download\" instead of \"View Content\" when open file in Remote Explorer"
+          "description": "%config.downloadWhenOpenInRemoteExplorer%"
         }
       }
     },
     "commands": [
       {
         "command": "sftp.config",
-        "title": "Config",
-        "category": "SFTP"
+        "title": "%command.config.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.setProfile",
-        "title": "Set Profile",
-        "category": "SFTP"
+        "title": "%command.setProfile.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.openConnectInTerminal",
-        "title": "Open SSH in Terminal",
-        "category": "SFTP"
+        "title": "%command.openConnectInTerminal.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.cancelAllTransfer",
-        "title": "Cancel All Transfers",
-        "category": "SFTP"
+        "title": "%command.cancelAllTransfer.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.file",
-        "title": "Upload File",
-        "category": "SFTP"
+        "title": "%command.upload.file.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.changedFiles",
-        "title": "Upload Changed Files",
-        "category": "SFTP",
+        "title": "%command.upload.changedFiles.title%",
+        "category": "%category.sftp%",
         "icon": {
           "light": "resources/light/upload.svg",
           "dark": "resources/dark/upload.svg"
@@ -110,63 +112,63 @@
       },
       {
         "command": "sftp.upload.activeFile",
-        "title": "Upload Active File",
-        "category": "SFTP"
+        "title": "%command.upload.activeFile.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.folder",
-        "title": "Upload Folder",
-        "category": "SFTP"
+        "title": "%command.upload.folder.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.activeFolder",
-        "title": "Upload Active Folder",
-        "category": "SFTP"
+        "title": "%command.upload.activeFolder.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.project",
-        "title": "Upload Project",
-        "category": "SFTP"
+        "title": "%command.upload.project.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.forceUpload",
-        "title": "Force Upload",
-        "category": "SFTP"
+        "title": "%command.forceUpload.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.file.to.allProfiles",
-        "title": "Upload File To All Profiles",
-        "category": "SFTP"
+        "title": "%command.upload.file.to.allProfiles.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.activeFile.to.allProfiles",
-        "title": "Upload Active File To All Profiles",
-        "category": "SFTP"
+        "title": "%command.upload.activeFile.to.allProfiles.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.folder.to.allProfiles",
-        "title": "Upload Folder To All Profiles",
-        "category": "SFTP"
+        "title": "%command.upload.folder.to.allProfiles.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.activeFolder.to.allProfiles",
-        "title": "Upload Active Folder To All Profiles",
-        "category": "SFTP"
+        "title": "%command.upload.activeFolder.to.allProfiles.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.upload.project.to.allProfiles",
-        "title": "Upload Project To All Profiles",
-        "category": "SFTP"
+        "title": "%command.upload.project.to.allProfiles.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.forceUpload.to.allProfiles",
-        "title": "Force Upload To All Profiles",
-        "category": "SFTP"
+        "title": "%command.forceUpload.to.allProfiles.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.download.file",
-        "title": "Download File",
-        "category": "SFTP",
+        "title": "%command.download.file.title%",
+        "category": "%category.sftp%",
         "icon": {
           "dark": "resources/dark/download-file.svg",
           "light": "resources/light/download-file.svg"
@@ -174,13 +176,13 @@
       },
       {
         "command": "sftp.download.activeFile",
-        "title": "Download Active File",
-        "category": "SFTP"
+        "title": "%command.download.activeFile.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.download.folder",
-        "title": "Download Folder",
-        "category": "SFTP",
+        "title": "%command.download.folder.title%",
+        "category": "%category.sftp%",
         "icon": {
           "dark": "resources/dark/download-folder.svg",
           "light": "resources/light/download-folder.svg"
@@ -188,97 +190,97 @@
       },
       {
         "command": "sftp.download.activeFolder",
-        "title": "Download Active Folder",
-        "category": "SFTP"
+        "title": "%command.download.activeFolder.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.download.project",
-        "title": "Download Project",
-        "category": "SFTP"
+        "title": "%command.download.project.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.forceDownload",
-        "title": "Force Download",
-        "category": "SFTP"
+        "title": "%command.forceDownload.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.sync.localToRemote",
-        "title": "Sync Local -> Remote",
-        "category": "SFTP"
+        "title": "%command.sync.localToRemote.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.sync.remoteToLocal",
-        "title": "Sync Remote -> Local",
-        "category": "SFTP"
+        "title": "%command.sync.remoteToLocal.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.sync.bothDirections",
-        "title": "Sync Both Directions",
-        "category": "SFTP"
+        "title": "%command.sync.bothDirections.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.diff",
-        "title": "Diff with Remote",
-        "category": "SFTP"
+        "title": "%command.diff.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.diff.activeFile",
-        "title": "Diff Active File with Remote",
-        "category": "SFTP"
+        "title": "%command.diff.activeFile.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.list",
-        "title": "List",
-        "category": "SFTP"
+        "title": "%command.list.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.listActiveFolder",
-        "title": "List Active Folder",
-        "category": "SFTP"
+        "title": "%command.listActiveFolder.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.listAll",
-        "title": "List All",
-        "category": "SFTP"
+        "title": "%command.listAll.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.delete.remote",
-        "title": "Delete",
-        "category": "SFTP"
+        "title": "%command.delete.remote.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.create.folder",
-        "title": "Create Folder",
-        "category": "SFTP"
+        "title": "%command.create.folder.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.create.file",
-        "title": "Create File",
-        "category": "SFTP"
+        "title": "%command.create.file.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.revealInExplorer",
-        "title": "Reveal in Explorer",
-        "category": "SFTP"
+        "title": "%command.revealInExplorer.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.revealInRemoteExplorer",
-        "title": "Reveal in Remote Explorer",
-        "category": "SFTP"
+        "title": "%command.revealInRemoteExplorer.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.remoteExplorer.editInLocal",
-        "title": "Edit in Local",
-        "category": "SFTP"
+        "title": "%command.remoteExplorer.editInLocal.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.viewContent",
-        "title": "View Content",
-        "category": "SFTP"
+        "title": "%command.viewContent.title%",
+        "category": "%category.sftp%"
       },
       {
         "command": "sftp.remoteExplorer.refresh",
-        "title": "Refresh",
+        "title": "%command.remoteExplorer.refresh.title%",
         "icon": {
           "light": "resources/light/refresh.svg",
           "dark": "resources/dark/refresh.svg"
@@ -286,8 +288,8 @@
       },
       {
         "command": "sftp.remoteExplorer.refreshActiveFile",
-        "title": "Refresh Active Remote File",
-        "category": "SFTP",
+        "title": "%command.remoteExplorer.refreshActiveFile.title%",
+        "category": "%category.sftp%",
         "icon": {
           "light": "resources/light/refresh.svg",
           "dark": "resources/dark/refresh.svg"

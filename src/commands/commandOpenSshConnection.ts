@@ -4,6 +4,7 @@ import { getAllFileService } from '../modules/serviceManager';
 import { ExplorerRoot } from '../modules/remoteExplorer';
 import { interpolate } from '../utils';
 import { checkCommand } from './abstract/createCommand';
+import { localize } from '../i18n';
 
 const isWindows = process.platform === 'win32';
 
@@ -65,7 +66,7 @@ export default checkCommand({
       }
 
       const item = await vscode.window.showQuickPick(remoteItems, {
-        placeHolder: 'Select a folder...',
+        placeHolder: localize('prompt.selectFolder', 'Select a folder...'),
       });
       if (item === undefined) {
         return;

@@ -7,6 +7,7 @@ import { getGitService, GitAPI, Repository, Status, Change } from '../modules/gi
 import { checkCommand } from './abstract/createCommand';
 import logger from '../logger';
 import { simplifyPath } from '../helper';
+import { localize } from '../i18n';
 
 export default checkCommand({
   id: COMMAND_UPLOAD_CHANGEDFILES,
@@ -161,7 +162,7 @@ async function getRepository(git: GitAPI): Promise<Repository | undefined> {
     };
   });
 
-  const pick = await vscode.window.showQuickPick(picks, { placeHolder: 'Choose a repository' });
+  const pick = await vscode.window.showQuickPick(picks, { placeHolder: localize('prompt.chooseRepository', 'Choose a repository') });
 
   return pick && pick.repository;
 }

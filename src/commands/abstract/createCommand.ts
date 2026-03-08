@@ -3,6 +3,11 @@ import logger from '../../logger';
 import { reportError } from '../../helper';
 import { handleCtxFromUri, allHandleCtxFromUri, FileHandlerContext } from '../../fileHandlers';
 import Command from './command';
+import { localize } from '../../i18n';
+import {
+  COMMAND_UPLOAD_FILE_TO_ALL_PROFILES,
+  COMMAND_UPLOAD_FOLDER_TO_ALL_PROFILES,
+} from '../../constants';
 
 interface BaseCommandOption {
   id: string;
@@ -48,11 +53,13 @@ export function createFileCommand(commandOption: FileCommandOption & { name: str
     }
 
     protected async doCommandRun(...args) {
-      if ((this.id === COMMAND_UPLOAD_FILE_TO_ALL_PROFILES || this.id === COMMAND_UPLOAD_FOLDER_TO_ALL_PROFILES) 
-        && await window.showInformationMessage('Are you sure you want to upload to all profiles?', 'Yes', 'No').then(answer => answer !== 'Yes')) {
+      const uploadAllMsg = localize('confirm.uploadAllProfiles', 'Are you sure you want to upload to all profiles?');
+      const yesLabel = localize('confirm.yes', 'Yes');
+      if ((this.id === COMMAND_UPLOAD_FILE_TO_ALL_PROFILES || this.id === COMMAND_UPLOAD_FOLDER_TO_ALL_PROFILES)
+        && await window.showInformationMessage(uploadAllMsg, yesLabel, localize('confirm.no', 'No')).then(answer => answer !== yesLabel)) {
         return;
       }
-      
+
       const target = await commandOption.getFileTarget(...args);
       if (!target) {
         logger.warn(`The "${this.name}" command get canceled because of missing targets.`);
@@ -82,11 +89,13 @@ export function createFileMultiCommand(commandOption: FileCommandOption & { name
     }
 
     protected async doCommandRun(...args) {
-      if ((this.id === COMMAND_UPLOAD_FILE_TO_ALL_PROFILES || this.id === COMMAND_UPLOAD_FOLDER_TO_ALL_PROFILES) 
-        && await window.showInformationMessage('Are you sure you want to upload to all profiles?', 'Yes', 'No').then(answer => answer !== 'Yes')) {
+      const uploadAllMsg = localize('confirm.uploadAllProfiles', 'Are you sure you want to upload to all profiles?');
+        const yesLabel = localize('confirm.yes', 'Yes');
+        if ((this.id === COMMAND_UPLOAD_FILE_TO_ALL_PROFILES || this.id === COMMAND_UPLOAD_FOLDER_TO_ALL_PROFILES)
+        && await window.showInformationMessage(uploadAllMsg, yesLabel, localize('confirm.no', 'No')).then(answer => answer !== yesLabel)) {
         return;
       }
-      
+
       const target = await commandOption.getFileTarget(...args);
       if (!target) {
         logger.warn(`The "${this.name}" command get canceled because of missing targets.`);

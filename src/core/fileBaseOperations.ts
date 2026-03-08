@@ -2,6 +2,7 @@ import { FileSystem } from './fs';
 import { window } from 'vscode';
 import { Readable } from 'stream';
 import logger from '../logger';
+import { localize } from '../i18n';
 
 interface FileOption {
   mode?: number;
@@ -55,8 +56,9 @@ export function createDir(path: string, fs: FileSystem, option): Promise<void> {
 export async function createFile(path: string, fs: FileSystem, option): Promise<void> {
   try {
     await fs.lstat(path);
-    logger.warn(`Can't create file becase file already exist`);
-    window.showErrorMessage(`Can't create file becase file already exist`);
+    const msg = localize('error.fileExists', "Can't create file because file already exist");
+    logger.warn(msg);
+    window.showErrorMessage(msg);
     return;
   } catch (error) {
 

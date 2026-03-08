@@ -16,6 +16,7 @@ import {
 } from '../../constants';
 import { getAllFileService } from '../serviceManager';
 import { getExtensionSetting } from '../ext';
+import { localize } from '../../i18n';
 
 type Id = number;
 
@@ -125,7 +126,7 @@ export default class RemoteTreeData
               ? COMMAND_REMOTEEXPLORER_EDITINLOCAL
               : COMMAND_REMOTEEXPLORER_VIEW_CONTENT,
             arguments: [item],
-            title: 'View Remote Resource',
+            title: localize('remoteExplorer.viewRemoteResource', 'View Remote Resource'),
           },
     };
   }

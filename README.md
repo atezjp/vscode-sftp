@@ -1,12 +1,18 @@
 # sftp sync extension for VS Code
 
+[日本語](README.ja.md) | English
+
+Fork maintained by `ATEZJP`.<br>
+Original work by [@Natizyskunk](https://github.com/Natizyskunk/) and previous contributors.
+
 New maintained and updated version by [@Natizyskunk](https://github.com/Natizyskunk/) 😀 <!-- and [@satiromarra](https://github.com/satiromarra) --> <br>
 (Forked from the no longer maintained [liximomo's SFTP plugin](https://github.com/liximomo/vscode-sftp.git))
 
-- VS Code marketplace : https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp <br>
-- VSIX release : https://github.com/Natizyskunk/vscode-sftp/releases/
+- Fork repository : https://github.com/atezjp/vscode-sftp <br>
+- VSIX release : https://github.com/atezjp/vscode-sftp/releases/
+- Original marketplace page : https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
 
-✳ I would be more than happy to have you participate in one way or another to this project. You can do so by simply following the [templates](https://github.com/Natizyskunk/vscode-sftp/issues/new/choose) when you open a new issue or a new pull request.
+✳ Contributions to this fork are welcome. Please use the fork's [issue and pull request templates](https://github.com/atezjp/vscode-sftp/issues/new/choose) when opening a new issue or pull request.
 
 ## ℹ INFOS - 2025/03/13
 I've tried to keep this extension up-to-date as much as I can and added a lot of new relevant features. Saddly, for the last year and a half I wasn't really able to work on the project because of personal reasons and I'm really not sure if and when I'll be able to get more time to work on it again. So for now consider the [v1.16.3](https://github.com/Natizyskunk/vscode-sftp/releases/tag/v1.16.3) as the latest official stable release available.
@@ -40,9 +46,10 @@ VSCode-SFTP enables you to add, edit or delete files within a local directory an
 ## Installation
 
 ### Method 1 (Recommended : Auto update)
+If this fork is published on the VS Code Marketplace in the future:
 1. Select Extensions (Ctrl + Shift + X).
 2. Uninstall current sftp extension from @liximomo.
-3. Install new extension directly from VS Code Marketplace : https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp.
+3. Install the `ATEZJP` published version from the VS Code Marketplace.
 4. Voilà!
 
 ### Method 2 (Manual update)
@@ -95,7 +102,7 @@ _Note：_ backslashes and other special characters must be escaped with a backsl
 8. Done - you can now edit locally and after each save it will upload to sync your remote file with the local copy.
 9. Enjoy!
 
-For detailed explanations please go to [wiki](https://github.com/Natizyskunk/vscode-sftp/wiki).
+For detailed explanations, see the local docs in this repository or the original wiki.
 
 ## Example configurations
 You can see the full list of configuration options [here](https://github.com/Natizyskunk/vscode-sftp/wiki/configuration).

@@ -1,11 +1,14 @@
 *
 */**
 **/.DS_Store
-!node_modules/**/*
 !dist/extension.js
 !package.json
+!package.nls.json
+!package.nls.ja.json
 !README.md
+!README.ja.md
 !CHANGELOG.md
+!CHANGELOG.ja.md
 !LICENSE
 !resources/**/*
 !schema/**/*

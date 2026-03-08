@@ -1,0 +1,23 @@
+{
+  "confirm.yes": "Yes",
+  "confirm.no": "No",
+  "confirm.uploadAllProfiles": "Are you sure you want to upload to all profiles?",
+  "button.detail": "Detail",
+  "error.fileExists": "Can't create file because file already exist",
+  "message.noAvailableProfile": "No Available Profile.",
+  "prompt.selectProfile": "select a profile",
+  "prompt.selectFolder": "Select a folder...",
+  "prompt.chooseRepository": "Choose a repository",
+  "prompt.selectTarget": "Select a target...",
+  "prompt.inputFileName": "Please input file name",
+  "prompt.inputFolderName": "Please input folder name",
+  "remoteExplorer.viewRemoteResource": "View Remote Resource",
+  "statusBar.sftp": "SFTP",
+  "statusBar.sftpProfile": "SFTP: {0}",
+  "statusBar.tooltip": "SFTP@Natizyskunk",
+  "message.sftpExpectsFolder": "SFTP expects to work at a folder.",
+  "message.noAvailableFolders": "There are no available folders in current workspace.",
+  "button.openFolder": "Open Folder",
+  "button.addFolderToWorkspace": "Add Folder to Workspace",
+  "button.ok": "Ok"
+}

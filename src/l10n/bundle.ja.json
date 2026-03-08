@@ -1,0 +1,23 @@
+{
+  "confirm.yes": "はい",
+  "confirm.no": "いいえ",
+  "confirm.uploadAllProfiles": "すべてのプロファイルにアップロードしてもよろしいですか？",
+  "button.detail": "詳細",
+  "error.fileExists": "ファイルが既に存在するため作成できません",
+  "message.noAvailableProfile": "利用可能なプロファイルがありません。",
+  "prompt.selectProfile": "プロファイルを選択",
+  "prompt.selectFolder": "フォルダを選択...",
+  "prompt.chooseRepository": "リポジトリを選択",
+  "prompt.selectTarget": "対象を選択...",
+  "prompt.inputFileName": "ファイル名を入力してください",
+  "prompt.inputFolderName": "フォルダ名を入力してください",
+  "remoteExplorer.viewRemoteResource": "リモートリソースを表示",
+  "statusBar.sftp": "SFTP",
+  "statusBar.sftpProfile": "SFTP: {0}",
+  "statusBar.tooltip": "SFTP@Natizyskunk",
+  "message.sftpExpectsFolder": "SFTP はフォルダで作業する必要があります。",
+  "message.noAvailableFolders": "現在のワークスペースに利用可能なフォルダがありません。",
+  "button.openFolder": "フォルダを開く",
+  "button.addFolderToWorkspace": "ワークスペースにフォルダを追加",
+  "button.ok": "OK"
+}

@@ -263,7 +263,7 @@ async function _sync(
             }
 
             if (transferOption.update) {
-              if (from.mtime <= to.mtime) {
+              if (Math.floor(from.mtime / 1000) <= Math.floor(to.mtime / 1000)) {
                 return;
               }
             }

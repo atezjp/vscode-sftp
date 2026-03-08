@@ -4,6 +4,7 @@ import { createRemoteFolder } from '../fileHandlers';
 import { checkFileCommand } from './abstract/createCommand';
 import { uriFromExplorerContextOrEditorContext } from './shared';
 import { window, Uri } from 'vscode';
+import { localize } from '../i18n';
 
 export default checkFileCommand({
   id: COMMAND_CREATE_FOLDER,
@@ -19,7 +20,7 @@ export default checkFileCommand({
 */
     const result = await window.showInputBox({
         value: '',
-        prompt: 'Please input folder name',
+        prompt: localize('prompt.inputFolderName', 'Please input folder name'),
     });
 
 

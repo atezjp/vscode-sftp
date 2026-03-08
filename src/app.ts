@@ -3,6 +3,7 @@ import StatusBarItem from './ui/statusBarItem';
 import { COMMAND_TOGGLE_OUTPUT } from './constants';
 import AppState from './modules/appState';
 import RemoteExplorer from './modules/remoteExplorer';
+import { localize, localizeWithArgs } from './i18n';
 
 interface App {
   fsCache: LRU.Cache<string, string>;
@@ -17,12 +18,12 @@ app.state = new AppState();
 app.sftpBarItem = new StatusBarItem(
   () => {
     if (app.state.profile) {
-      return `SFTP: ${app.state.profile}`;
+      return localizeWithArgs('statusBar.sftpProfile', app.state.profile);
     } else {
-      return 'SFTP';
+      return localize('statusBar.sftp', 'SFTP');
     }
   },
-  'SFTP@Natizyskunk',
+  localize('statusBar.tooltip', 'SFTP@Natizyskunk'),
   COMMAND_TOGGLE_OUTPUT
 );
 app.fsCache = LRU<string, string>({ max: 6 });
