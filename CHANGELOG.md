@@ -1,3 +1,7 @@
+## 1.16.7 - 2026-03-08
+* Add a Japanese quick start guide and link it from the main documentation entry points.
+* Include Japanese documentation files in the packaged extension so the local guide links remain available after installation.
+
 ## 1.16.6 - 2026-03-08
 * Add compatibility fallbacks for Cursor and Antigravity by broadening config discovery and activation conditions.
 * Guard optional Git and workbench integrations so the extension remains usable in VS Code compatible editors.

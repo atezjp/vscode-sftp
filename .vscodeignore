@@ -7,8 +7,11 @@
 !package.nls.ja.json
 !README.md
 !README.ja.md
+!FAQ.ja.md
+!CONTRIBUTING.ja.md
 !CHANGELOG.md
 !CHANGELOG.ja.md
+!docs/**/*.ja.md
 !LICENSE
 !resources/**/*
 !schema/**/*

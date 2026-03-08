@@ -80,6 +80,7 @@ To install just follow these steps from within VSCode:
 6. Voilà!
 
 ## Documentation
+- [Quick Start Guide](./docs/getting_started.ja.md)
 - [Home](https://github.com/Natizyskunk/vscode-sftp/wiki)
 - [Settings](https://github.com/Natizyskunk/vscode-sftp/wiki/Setting)
 - [Common configuration](https://github.com/Natizyskunk/vscode-sftp/wiki/Common-Configuration)
@@ -120,7 +121,7 @@ _Note：_ backslashes and other special characters must be escaped with a backsl
 8. Done - you can now edit locally and after each save it will upload to sync your remote file with the local copy.
 9. Enjoy!
 
-For detailed explanations, see the local docs in this repository or the original wiki.
+For detailed explanations, see the [Quick Start Guide](./docs/getting_started.ja.md), the local docs in this repository, or the original wiki.
 
 ## Example configurations
 You can see the full list of configuration options [here](https://github.com/Natizyskunk/vscode-sftp/wiki/configuration).

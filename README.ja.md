@@ -78,6 +78,7 @@ VSCode 内で次の手順に従ってインストールしてください。
 6. 完了です。
 
 ## ドキュメント
+- [かんたん使い方ガイド](./docs/getting_started.ja.md)
 - [ホーム](./docs/home.ja.md)
 - [設定](./docs/setting.ja.md)
 - [共通設定](./docs/common_configuration.ja.md)
@@ -119,7 +120,7 @@ _注意:_ バックスラッシュなどの特殊文字はバックスラッシ�
 8. これでローカルで編集でき、保存のたびにアップロードされてリモートと同期される。
 9. お楽しみください。
 
-詳しくは [日本語ドキュメント](./docs/home.ja.md) または元の wiki を参照してください。
+詳しくは [かんたん使い方ガイド](./docs/getting_started.ja.md)、[日本語ドキュメント](./docs/home.ja.md) または元の wiki を参照してください。
 
 ## 設定例
 設定オプションの一覧は [こちら](./docs/configuration.ja.md) で確認できます。
