@@ -1,6 +1,6 @@
 {
   "extension.displayName": "SFTP Japanese",
-  "extension.description": "SFTP/FTP 同期",
+  "extension.description": "Remote Explorer、差分表示、保存時アップロードに対応した SFTP / FTP 同期拡張。",
   "view.activitybar.title": "SFTP",
   "view.remoteExplorer.name": "エクスプローラー",
   "config.title": "sftp 設定",

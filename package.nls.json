@@ -1,6 +1,6 @@
 {
   "extension.displayName": "SFTP Japanese",
-  "extension.description": "SFTP/FTP sync",
+  "extension.description": "Sync local files with remote servers over SFTP or FTP, with Remote Explorer, diff, and upload-on-save.",
   "view.activitybar.title": "SFTP",
   "view.remoteExplorer.name": "Explorer",
   "config.title": "sftp configuration",

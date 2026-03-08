@@ -5,8 +5,17 @@
 Fork maintained by `ATEZJP`.<br>
 Original work by [@Natizyskunk](https://github.com/Natizyskunk/) and previous contributors.
 
-New maintained and updated version by [@Natizyskunk](https://github.com/Natizyskunk/) 😀 <!-- and [@satiromarra](https://github.com/satiromarra) --> <br>
-(Forked from the no longer maintained [liximomo's SFTP plugin](https://github.com/liximomo/vscode-sftp.git))
+`SFTP Japanese` is an ATEZJP-maintained fork of the long-running VS Code SFTP extension. It helps you sync local files with remote servers over SFTP or FTP while staying inside VS Code.
+
+- Sync local changes to remote servers over SFTP or FTP
+- Browse remote files with Remote Explorer
+- Diff local and remote files before updating
+- Use upload-on-save, watchers, and multiple profiles
+- Work with a Japanese-localized UI and Japanese documentation
+
+This fork keeps the original credit and license, while focusing on Japanese localization, release packaging, and a smoother setup experience for Japanese-speaking users.
+
+(Forked from the no longer maintained [liximomo's SFTP plugin](https://github.com/liximomo/vscode-sftp.git), and later maintained by [@Natizyskunk](https://github.com/Natizyskunk/).)
 
 - Fork repository : https://github.com/atezjp/vscode-sftp <br>
 - VSIX release : https://github.com/atezjp/vscode-sftp/releases/
@@ -14,6 +23,12 @@ New maintained and updated version by [@Natizyskunk](https://github.com/Natizysk
 - Original marketplace page : https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
 
 ✳ Contributions to this fork are welcome. Please use the fork's [issue and pull request templates](https://github.com/atezjp/vscode-sftp/issues/new/choose) when opening a new issue or pull request.
+
+## Why this fork
+
+- It is published as a separate extension, so you can install it without replacing the project identity of the original fork lineage.
+- It adds Japanese localization for commands, settings, dialogs, and supporting documentation.
+- It keeps the familiar SFTP workflow while making onboarding easier for Japanese users.
 
 ## ℹ INFOS - 2025/03/13
 I've tried to keep this extension up-to-date as much as I can and added a lot of new relevant features. Saddly, for the last year and a half I wasn't really able to work on the project because of personal reasons and I'm really not sure if and when I'll be able to get more time to work on it again. So for now consider the [v1.16.3](https://github.com/Natizyskunk/vscode-sftp/releases/tag/v1.16.3) as the latest official stable release available.

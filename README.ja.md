@@ -3,8 +3,17 @@
 このフォークは `ATEZJP` がメンテナンスしています。<br>
 元の著作物は [@Natizyskunk](https://github.com/Natizyskunk/) および過去の貢献者によるものです。
 
-[@Natizyskunk](https://github.com/Natizyskunk/) による新規メンテナンス・更新版 😀 <br>
-（メンテ終了した [liximomo の SFTP プラグイン](https://github.com/liximomo/vscode-sftp.git) のフォークです）
+`SFTP Japanese` は、長く使われてきた VS Code 向け SFTP 拡張をベースに、`ATEZJP` が保守している日本語対応フォークです。VS Code を離れずに、ローカルファイルとリモートサーバーを SFTP / FTP で同期できます。
+
+- ローカルの変更を SFTP / FTP でリモートへ同期
+- Remote Explorer でリモートファイルを参照
+- 更新前にローカルとリモートを差分確認
+- 保存時アップロード、watcher、複数プロファイルに対応
+- UI とドキュメントを日本語で利用可能
+
+このフォークは、元の著作権表記とライセンスを維持しつつ、日本語化、配布整備、日本語ユーザー向けの導入しやすさを重視しています。
+
+（メンテ終了した [liximomo の SFTP プラグイン](https://github.com/liximomo/vscode-sftp.git) を起点とし、その後 [@Natizyskunk](https://github.com/Natizyskunk/) により保守されてきた系譜のフォークです。）
 
 - このフォークのリポジトリ: https://github.com/atezjp/vscode-sftp <br>
 - VSIX リリース: https://github.com/atezjp/vscode-sftp/releases/
@@ -12,6 +21,12 @@
 - 元の Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
 
 ✳ このフォークへの issue や pull request は歓迎です。投稿時は、このフォークの [テンプレート](https://github.com/atezjp/vscode-sftp/issues/new/choose) を利用してください。
+
+## このフォークの特徴
+
+- 元の拡張系譜とは別 ID の拡張として公開しているため、フォーク版として明確に導入できます。
+- コマンド、設定、ダイアログ、補助ドキュメントまで日本語化しています。
+- 従来の SFTP ワークフローを保ちつつ、日本語ユーザーが導入しやすい形に整えています。
 
 ## ℹ お知らせ - 2025/03/13
 できる限りこの拡張機能を最新の状態に保ち、多くの新機能を追加してきました。残念ながら、ここ1年半ほどは個人的な事情でプロジェクトに取り組めず、今後いつまた時間を割けるか不透明な状況です。そのため、現時点では [v1.16.3](https://github.com/Natizyskunk/vscode-sftp/releases/tag/v1.16.3) を最新の公式安定版としてご利用ください。
