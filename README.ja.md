@@ -8,6 +8,7 @@
 
 - このフォークのリポジトリ: https://github.com/atezjp/vscode-sftp <br>
 - VSIX リリース: https://github.com/atezjp/vscode-sftp/releases/
+- Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=ATEZJP.sftp-ja
 - 元の Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
 
 ✳ このフォークへの issue や pull request は歓迎です。投稿時は、このフォークの [テンプレート](https://github.com/atezjp/vscode-sftp/issues/new/choose) を利用してください。
@@ -44,10 +45,9 @@ VSCode-SFTP は、ローカルディレクトリ内でファイルの追加・�
 ## インストール
 
 ### 方法 1（推奨: 自動更新）
-このフォークを将来的に VS Code Marketplace へ公開した場合:
 1. 拡張機能（Ctrl + Shift + X）を開く。
 2. @liximomo の現在の sftp 拡張機能をアンインストールする。
-3. VS Code Marketplace から `ATEZJP` 公開版をインストールする。
+3. VS Code Marketplace から `ATEZJP` 公開版をインストールする: https://marketplace.visualstudio.com/items?itemName=ATEZJP.sftp-ja
 4. 完了です。
 
 ### 方法 2（手動更新）

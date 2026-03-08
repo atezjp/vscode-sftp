@@ -10,6 +10,7 @@ New maintained and updated version by [@Natizyskunk](https://github.com/Natizysk
 
 - Fork repository : https://github.com/atezjp/vscode-sftp <br>
 - VSIX release : https://github.com/atezjp/vscode-sftp/releases/
+- Marketplace page : https://marketplace.visualstudio.com/items?itemName=ATEZJP.sftp-ja
 - Original marketplace page : https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
 
 ✳ Contributions to this fork are welcome. Please use the fork's [issue and pull request templates](https://github.com/atezjp/vscode-sftp/issues/new/choose) when opening a new issue or pull request.
@@ -46,10 +47,9 @@ VSCode-SFTP enables you to add, edit or delete files within a local directory an
 ## Installation
 
 ### Method 1 (Recommended : Auto update)
-If this fork is published on the VS Code Marketplace in the future:
 1. Select Extensions (Ctrl + Shift + X).
 2. Uninstall current sftp extension from @liximomo.
-3. Install the `ATEZJP` published version from the VS Code Marketplace.
+3. Install the `ATEZJP` published version from the VS Code Marketplace: https://marketplace.visualstudio.com/items?itemName=ATEZJP.sftp-ja.
 4. Voilà!
 
 ### Method 2 (Manual update)
