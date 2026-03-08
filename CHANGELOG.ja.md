@@ -3,8 +3,12 @@
 このファイルは `CHANGELOG.md` の日本語版です。  
 Issue / Pull Request / コミットへのリンクやバージョン番号は原文に合わせて維持しています。
 
+## 1.16.5 - 2026-03-08
+* `atezjp` publisher で正式公開するため、公開メタデータと Marketplace リンクを小文字表記に統一。
+* `onCommand:sftp.config` の activation event 削除を含む現在のソース状態を、正式リリースとして反映。
+
 ## 1.16.4 - 2026-03-08
-* ATEZJP フォーク向けの公開メタデータを反映し、Marketplace の説明文と README 冒頭を日本語優先に調整。
+* atezjp フォーク向けの公開メタデータを反映し、Marketplace の説明文と README 冒頭を日本語優先に調整。
 * Marketplace 再公開のため、拡張バージョンを更新。
 
 ## 1.16.3 - 2023-06-16

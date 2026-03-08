@@ -2,10 +2,10 @@
 
 この README は日本語を主として案内します。必要なら詳細な日本語版として `README.ja.md` も参照できます。
 
-このフォークは `ATEZJP` がメンテナンスしています。<br>
+このフォークは `atezjp` がメンテナンスしています。<br>
 元の著作物は [@Natizyskunk](https://github.com/Natizyskunk/) および過去の貢献者によるものです。
 
-`SFTP Japanese` は、長く使われてきた VS Code 向け SFTP 拡張をベースに、`ATEZJP` が保守している日本語対応フォークです。VS Code を離れずに、ローカルファイルとリモートサーバーを SFTP / FTP で同期できます。
+`SFTP Japanese` は、長く使われてきた VS Code 向け SFTP 拡張をベースに、`atezjp` が保守している日本語対応フォークです。VS Code を離れずに、ローカルファイルとリモートサーバーを SFTP / FTP で同期できます。
 
 - ローカルの変更を SFTP / FTP でリモートへ同期
 - Remote Explorer でリモートファイルを参照
@@ -19,7 +19,7 @@
 
 - このフォークのリポジトリ: https://github.com/atezjp/vscode-sftp <br>
 - VSIX リリース: https://github.com/atezjp/vscode-sftp/releases/
-- Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=ATEZJP.sftp-ja
+- Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=atezjp.sftp-ja
 - 元の Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
 
 ✳ このフォークへの issue や pull request は歓迎です。投稿時は、このフォークの [テンプレート](https://github.com/atezjp/vscode-sftp/issues/new/choose) を利用してください。
@@ -64,7 +64,7 @@ VSCode-SFTP enables you to add, edit or delete files within a local directory an
 ### Method 1 (Recommended : Auto update)
 1. Select Extensions (Ctrl + Shift + X).
 2. Uninstall current sftp extension from @liximomo.
-3. Install the `ATEZJP` published version from the VS Code Marketplace: https://marketplace.visualstudio.com/items?itemName=ATEZJP.sftp-ja.
+3. Install the `atezjp` published version from the VS Code Marketplace: https://marketplace.visualstudio.com/items?itemName=atezjp.sftp-ja.
 4. Voilà!
 
 ### Method 2 (Manual update)

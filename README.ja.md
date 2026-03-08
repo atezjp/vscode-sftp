@@ -1,9 +1,9 @@
 # VS Code 用 SFTP 同期拡張機能
 
-このフォークは `ATEZJP` がメンテナンスしています。<br>
+このフォークは `atezjp` がメンテナンスしています。<br>
 元の著作物は [@Natizyskunk](https://github.com/Natizyskunk/) および過去の貢献者によるものです。
 
-`SFTP Japanese` は、長く使われてきた VS Code 向け SFTP 拡張をベースに、`ATEZJP` が保守している日本語対応フォークです。VS Code を離れずに、ローカルファイルとリモートサーバーを SFTP / FTP で同期できます。
+`SFTP Japanese` は、長く使われてきた VS Code 向け SFTP 拡張をベースに、`atezjp` が保守している日本語対応フォークです。VS Code を離れずに、ローカルファイルとリモートサーバーを SFTP / FTP で同期できます。
 
 - ローカルの変更を SFTP / FTP でリモートへ同期
 - Remote Explorer でリモートファイルを参照
@@ -17,7 +17,7 @@
 
 - このフォークのリポジトリ: https://github.com/atezjp/vscode-sftp <br>
 - VSIX リリース: https://github.com/atezjp/vscode-sftp/releases/
-- Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=ATEZJP.sftp-ja
+- Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=atezjp.sftp-ja
 - 元の Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
 
 ✳ このフォークへの issue や pull request は歓迎です。投稿時は、このフォークの [テンプレート](https://github.com/atezjp/vscode-sftp/issues/new/choose) を利用してください。
@@ -62,7 +62,7 @@ VSCode-SFTP は、ローカルディレクトリ内でファイルの追加・�
 ### 方法 1（推奨: 自動更新）
 1. 拡張機能（Ctrl + Shift + X）を開く。
 2. @liximomo の現在の sftp 拡張機能をアンインストールする。
-3. VS Code Marketplace から `ATEZJP` 公開版をインストールする: https://marketplace.visualstudio.com/items?itemName=ATEZJP.sftp-ja
+3. VS Code Marketplace から `atezjp` 公開版をインストールする: https://marketplace.visualstudio.com/items?itemName=atezjp.sftp-ja
 4. 完了です。
 
 ### 方法 2（手動更新）

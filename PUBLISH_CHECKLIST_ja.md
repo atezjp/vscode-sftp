@@ -1,19 +1,19 @@
 # 公開チェックリスト
 
-このフォークを `ATEZJP` 名義で公開する際のチェックリストです。
+このフォークを `atezjp` 名義で公開する際のチェックリストです。
 
 ## 現在の状態
 
 - コミット済み
 - 日本語ローカライズ済み
 - 日本語ドキュメント追加済み
-- VSIX 作成済み: `atezjp-sftp-1.16.3.vsix`
-- ブランチ状態: `develop` が `origin/develop` より 1 コミット先行
+- VSIX 作成済み: `sftp-ja-1.16.5.vsix`
+- ブランチ状態: 公開対象の変更がローカルでまとまっている
 
 ## GitHub Release 前チェック
 
 - `git status` が意図した状態であることを確認
-- `atezjp-sftp-1.16.3.vsix` が最新ビルドであることを確認
+- `sftp-ja-1.16.5.vsix` が最新ビルドであることを確認
 - `RELEASE_NOTES_ja.md` の内容を最終確認
 - 必要なら英語版のリリースノートも用意
 - リリース対象コミットを push
@@ -31,8 +31,8 @@ git push origin develop
 タグ名の例:
 
 ```sh
-git tag -a v1.16.3-atezjp.1 -m "ATEZJP Japanese localization release"
-git push origin v1.16.3-atezjp.1
+git tag -a v1.16.5 -m "atezjp SFTP v1.16.5"
+git push origin v1.16.5
 ```
 
 ### 3. GitHub Release を作成
@@ -40,17 +40,17 @@ git push origin v1.16.3-atezjp.1
 Web UI でも `gh` でも構いません。`gh` を使う場合の例:
 
 ```sh
-gh release create v1.16.3-atezjp.1 \
-  "atezjp-sftp-1.16.3.vsix" \
-  --title "ATEZJP SFTP v1.16.3" \
+gh release create v1.16.5 \
+  "sftp-ja-1.16.5.vsix" \
+  --title "atezjp SFTP v1.16.5" \
   --notes-file "RELEASE_NOTES_ja.md"
 ```
 
 ## Marketplace 公開前チェック
 
-- VS Code Marketplace に `ATEZJP` publisher を作成済み
-- `vsce login ATEZJP` で認証済み
-- `publisher` が `package.json` で `ATEZJP` になっている
+- VS Code Marketplace に `atezjp` publisher を作成済み
+- `vsce login atezjp` で認証済み
+- `publisher` が `package.json` で `atezjp` になっている
 - README 内の Marketplace 文言を公開後の URL に差し替える
 - アイコン / 表示名 / 説明文が公開用途として問題ない
 - 既存拡張と混同しない説明になっている
@@ -61,7 +61,7 @@ gh release create v1.16.3-atezjp.1 \
 ### VSIX を作り直す場合
 
 ```sh
-npx @vscode/vsce package --out "atezjp-sftp-1.16.3.vsix"
+npx @vscode/vsce package --out "sftp-ja-1.16.5.vsix"
 ```
 
 ### Marketplace に公開する場合
@@ -78,7 +78,7 @@ npx @vscode/vsce publish
 
 ## 公開後にやること
 
-- README の Marketplace リンクを `ATEZJP` の公開ページへ変更
+- README の Marketplace リンクを `atezjp` の公開ページへ変更
 - GitHub Releases に公開手順や更新履歴を継続追加
 - 必要なら `CHANGELOG.ja.md` を運用継続
 - Issue テンプレートや bug report 内リンクをフォーク先へ寄せる

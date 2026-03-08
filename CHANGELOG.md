@@ -1,5 +1,9 @@
+## 1.16.5 - 2026-03-08
+* Finalize the publisher metadata under `atezjp` and update Marketplace links to the lowercase publisher namespace.
+* Remove the `onCommand:sftp.config` activation event and publish the source state as a tagged release.
+
 ## 1.16.4 - 2026-03-08
-* Publish the ATEZJP fork metadata with Japanese-first Marketplace text and README messaging.
+* Publish the atezjp fork metadata with Japanese-first Marketplace text and README messaging.
 * Bump the extension version for Marketplace republishing.
 
 ## 1.16.3 - 2023-06-16
