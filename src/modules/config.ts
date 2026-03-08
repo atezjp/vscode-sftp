@@ -2,7 +2,12 @@ import * as vscode from 'vscode';
 import * as fse from 'fs-extra';
 import * as path from 'path';
 import * as Joi from 'joi';
-import { CONFIG_PATH } from '../constants';
+import {
+  CONFIG_PATH,
+  CONFIG_PATHS,
+  CURSOR_VENDOR_FOLDER,
+  ANTIGRAVITY_VENDOR_FOLDER,
+} from '../constants';
 import { reportError } from '../helper';
 import { showTextDocument } from '../host';
 
@@ -125,6 +130,28 @@ function getConfigPath(basePath) {
   return path.join(basePath, CONFIG_PATH);
 }
 
+function getPreferredConfigPath(basePath) {
+  const appName = vscode.env.appName.toLowerCase();
+  if (appName.includes('cursor')) {
+    return path.join(basePath, CURSOR_VENDOR_FOLDER, path.basename(CONFIG_PATH));
+  }
+  if (appName.includes('antigravity')) {
+    return path.join(basePath, ANTIGRAVITY_VENDOR_FOLDER, path.basename(CONFIG_PATH));
+  }
+  return getConfigPath(basePath);
+}
+
+async function resolveConfigPath(basePath) {
+  for (const relativeConfigPath of CONFIG_PATHS) {
+    const absoluteConfigPath = path.join(basePath, relativeConfigPath);
+    if (await fse.pathExists(absoluteConfigPath)) {
+      return absoluteConfigPath;
+    }
+  }
+
+  return getPreferredConfigPath(basePath);
+}
+
 export function validateConfig(config) {
   const { error } = Joi.validate(config, configScheme, {
     allowUnknown: true,
@@ -146,14 +173,17 @@ export function readConfigsFromFile(configPath): Promise<any[]> {
 }
 
 export function tryLoadConfigs(workspace): Promise<any[]> {
-  const configPath = getConfigPath(workspace);
-  return fse.pathExists(configPath).then(
-    exist => {
-      if (exist) {
-        return readConfigsFromFile(configPath);
-      }
-      return [];
-    },
+  return resolveConfigPath(workspace).then(
+    configPath =>
+      fse.pathExists(configPath).then(
+        exist => {
+          if (exist) {
+            return readConfigsFromFile(configPath);
+          }
+          return [];
+        },
+        _ => []
+      ),
     _ => []
   );
 }
@@ -168,32 +198,33 @@ export function tryLoadConfigs(workspace): Promise<any[]> {
 // }
 
 export function newConfig(basePath) {
-  const configPath = getConfigPath(basePath);
+  return resolveConfigPath(basePath)
+    .then(configPath =>
+      fse
+        .pathExists(configPath)
+        .then(exist => {
+          if (exist) {
+            return showTextDocument(vscode.Uri.file(configPath));
+          }
 
-  return fse
-    .pathExists(configPath)
-    .then(exist => {
-      if (exist) {
-        return showTextDocument(vscode.Uri.file(configPath));
-      }
-
-      return fse
-        .outputJson(
-          configPath,
-          {
-            name: 'My Server',
-            host: 'localhost',
-            protocol: 'sftp',
-            port: 22,
-            username: 'username',
-            remotePath: '/',
-            uploadOnSave: false,
-            useTempFile: false,
-            openSsh: false,
-          },
-          { spaces: 4 }
-        )
-        .then(() => showTextDocument(vscode.Uri.file(configPath)));
-    })
+          return fse
+            .outputJson(
+              configPath,
+              {
+                name: 'My Server',
+                host: 'localhost',
+                protocol: 'sftp',
+                port: 22,
+                username: 'username',
+                remotePath: '/',
+                uploadOnSave: false,
+                useTempFile: false,
+                openSsh: false,
+              },
+              { spaces: 4 }
+            )
+            .then(() => showTextDocument(vscode.Uri.file(configPath)));
+        })
+    )
     .catch(reportError);
 }

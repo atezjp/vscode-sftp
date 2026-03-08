@@ -2,7 +2,7 @@
   "name": "sftp-ja",
   "displayName": "%extension.displayName%",
   "description": "%extension.description%",
-  "version": "1.16.5",
+  "version": "1.16.6",
   "publisher": "atezjp",
   "author": "Natizyskunk <natan.fourie@hotmail.fr> (https://github.com/Natizyskunk)",
   "contributors": [
@@ -30,7 +30,12 @@
     "remote"
   ],
   "activationEvents": [
-    "workspaceContains:.vscode/sftp.json"
+    "onStartupFinished",
+    "onCommand:sftp.config",
+    "workspaceContains:.vscode/sftp.json",
+    "workspaceContains:.cursor/sftp.json",
+    "workspaceContains:.antigravity/sftp.json",
+    "workspaceContains:sftp.json"
   ],
   "icon": "resources/icon.png",
   "main": "./dist/extension",
@@ -534,21 +539,21 @@
         {
           "command": "sftp.remoteExplorer.editInLocal",
           "group": "2_files",
-          "when": "sftp.enabled && resourceScheme == remote"
+          "when": "sftp.enabled && resourceScheme == sftp-remote"
         }
       ],
       "editor/title": [
         {
           "command": "sftp.remoteExplorer.refreshActiveFile",
           "group": "navigation",
-          "when": "sftp.enabled && resourceScheme == remote"
+          "when": "sftp.enabled && resourceScheme == sftp-remote"
         }
       ],
       "editor/title/context": [
         {
           "command": "sftp.revealInExplorer",
           "group": "2_files",
-          "when": "sftp.enabled && resourceScheme == remote"
+          "when": "sftp.enabled && resourceScheme == sftp-remote"
         },
         {
           "command": "sftp.revealInRemoteExplorer",
@@ -684,11 +689,23 @@
       {
         "fileMatch": ".vscode/sftp.json",
         "url": "./schema/config.schema.json"
+      },
+      {
+        "fileMatch": ".cursor/sftp.json",
+        "url": "./schema/config.schema.json"
+      },
+      {
+        "fileMatch": ".antigravity/sftp.json",
+        "url": "./schema/config.schema.json"
+      },
+      {
+        "fileMatch": "sftp.json",
+        "url": "./schema/config.schema.json"
       }
     ],
     "resourceLabelFormatters": [
       {
-        "scheme": "remote",
+        "scheme": "sftp-remote",
         "formatting": {
           "label": "${path}",
           "separator": "/"

@@ -1,14 +1,22 @@
 import * as path from 'path';
 
-const VENDOR_FOLDER = '.vscode';
+export const VSCODE_VENDOR_FOLDER = '.vscode';
+export const CURSOR_VENDOR_FOLDER = '.cursor';
+export const ANTIGRAVITY_VENDOR_FOLDER = '.antigravity';
 
 export const EXTENSION_NAME = 'sftp';
 export const SETTING_KEY_REMOTE = 'remotefs.remote';
 
-export const REMOTE_SCHEME = 'remote';
+export const REMOTE_SCHEME = 'sftp-remote';
 
 export const CONGIF_FILENAME = 'sftp.json';
-export const CONFIG_PATH = path.join(VENDOR_FOLDER, CONGIF_FILENAME);
+export const CONFIG_PATH = path.join(VSCODE_VENDOR_FOLDER, CONGIF_FILENAME);
+export const CONFIG_PATHS = [
+  path.join(VSCODE_VENDOR_FOLDER, CONGIF_FILENAME),
+  path.join(CURSOR_VENDOR_FOLDER, CONGIF_FILENAME),
+  path.join(ANTIGRAVITY_VENDOR_FOLDER, CONGIF_FILENAME),
+  CONGIF_FILENAME,
+];
 
 // command not in package.json
 export const COMMAND_TOGGLE_OUTPUT = 'sftp.toggleOutput';

@@ -3,6 +3,10 @@
 このファイルは `CHANGELOG.md` の日本語版です。  
 Issue / Pull Request / コミットへのリンクやバージョン番号は原文に合わせて維持しています。
 
+## 1.16.6 - 2026-03-08
+* Cursor / Antigravity 互換のため、設定ファイル探索と activation 条件を拡張。
+* Git 連携やワークベンチ内部コマンドが未対応でも、拡張全体が落ちにくいようフォールバックを追加。
+
 ## 1.16.5 - 2026-03-08
 * `atezjp` publisher で正式公開するため、公開メタデータと Marketplace リンクを小文字表記に統一。
 * `onCommand:sftp.config` の activation event 削除を含む現在のソース状態を、正式リリースとして反映。

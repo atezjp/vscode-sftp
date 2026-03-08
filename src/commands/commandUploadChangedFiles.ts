@@ -8,6 +8,7 @@ import { checkCommand } from './abstract/createCommand';
 import logger from '../logger';
 import { simplifyPath } from '../helper';
 import { localize } from '../i18n';
+import { showWarningMessage } from '../host';
 
 export default checkCommand({
   id: COMMAND_UPLOAD_CHANGEDFILES,
@@ -43,6 +44,12 @@ async function handleCommand(hint: any) {
   let repository: Repository | undefined;
   let filterGroupId;
   const git = getGitService();
+  if (!git) {
+    await showWarningMessage(
+      localize('message.gitIntegrationUnavailable', 'Git integration is not available in this editor.')
+    );
+    return;
+  }
 
   if (!hint) {
     repository = await getRepository(git);
@@ -148,7 +155,8 @@ async function getRepository(git: GitAPI): Promise<Repository | undefined> {
   }
 
   if (git.repositories.length === 0) {
-    throw new Error('There are no available repositories');
+    await showWarningMessage(localize('message.noAvailableRepositories', 'There are no available repositories.'));
+    return undefined;
   }
 
   const picks = git.repositories.map(repo => {

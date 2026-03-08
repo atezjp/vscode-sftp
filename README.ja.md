@@ -10,6 +10,7 @@
 - 更新前にローカルとリモートを差分確認
 - 保存時アップロード、watcher、複数プロファイルに対応
 - UI とドキュメントを日本語で利用可能
+- Cursor / Antigravity では `.cursor/sftp.json` や `.antigravity/sftp.json` でも設定可能
 
 このフォークは、元の著作権表記とライセンスを維持しつつ、日本語化、配布整備、日本語ユーザー向けの導入しやすさを重視しています。
 
@@ -19,6 +20,8 @@
 - VSIX リリース: https://github.com/atezjp/vscode-sftp/releases/
 - Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=atezjp.sftp-ja
 - 元の Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
+
+Cursor や Antigravity で Marketplace から見つからない場合は、GitHub Releases の VSIX を直接インストールしてください。
 
 ✳ このフォークへの issue や pull request は歓迎です。投稿時は、このフォークの [テンプレート](https://github.com/atezjp/vscode-sftp/issues/new/choose) を利用してください。
 

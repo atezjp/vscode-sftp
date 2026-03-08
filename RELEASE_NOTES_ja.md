@@ -1,14 +1,15 @@
-# atezjp SFTP v1.16.5 リリースノート
+# atezjp SFTP v1.16.6 リリースノート
 
-このリリースは `atezjp` publisher への正式切り替えと、現在のソース状態のリリース整合を主な目的としています。
+このリリースは Cursor / Antigravity を含む VS Code 互換エディタでの利用しやすさを高めることを主な目的としています。
 
 ## 変更概要
 
-- `version` を `1.16.5` に更新
-- `publisher` を小文字の `atezjp` として正式化
-- `README.md` / `README.ja.md` の Marketplace リンクと保守者表記を `atezjp` に統一
-- `onCommand:sftp.config` の activation event 削除を現在のソース状態として反映
-- `CHANGELOG.md` / `CHANGELOG.ja.md` / 公開チェックリストを更新
+- `version` を `1.16.6` に更新
+- `.vscode/sftp.json` に加えて `.cursor/sftp.json` / `.antigravity/sftp.json` / `sftp.json` も設定候補として探索
+- `onStartupFinished` と `onCommand:sftp.config` を activation 条件に追加
+- リモート表示用 URI scheme を `sftp-remote` に変更し、互換エディタでの競合リスクを軽減
+- Git 拡張や内部ワークベンチコマンドが存在しない場合のフォールバックを追加
+- README に Cursor / Antigravity 向けの導入案内を追記
 
 ## 動作確認
 

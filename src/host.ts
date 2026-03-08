@@ -14,6 +14,14 @@ export function executeCommand(command: string, ...rest: any[]): Thenable<any> {
   return vscode.commands.executeCommand(command, ...rest);
 }
 
+export async function executeOptionalCommand(command: string, ...rest: any[]) {
+  try {
+    return await executeCommand(command, ...rest);
+  } catch (_) {
+    return undefined;
+  }
+}
+
 export function onWillSaveTextDocument(
   listener: (e: vscode.TextDocumentWillSaveEvent) => any,
   thisArgs?: any
@@ -42,11 +50,11 @@ export function getWorkspaceFolders() {
 }
 
 export function refreshExplorer() {
-  return executeCommand('workbench.files.action.refreshFilesExplorer');
+  return executeOptionalCommand('workbench.files.action.refreshFilesExplorer');
 }
 
 export function focusOpenEditors() {
-  return executeCommand('workbench.files.action.focusOpenEditorsView');
+  return executeOptionalCommand('workbench.files.action.focusOpenEditorsView');
 }
 
 export function showTextDocument(uri: vscode.Uri, option?: vscode.TextDocumentShowOptions) {
@@ -103,7 +111,7 @@ export function showOpenDialog(options: vscode.OpenDialogOptions) {
 }
 
 export function openFolder(uri?: vscode.Uri, newWindow?: boolean) {
-  return executeCommand('vscode.openFolder', uri, newWindow);
+  return executeOptionalCommand('vscode.openFolder', uri, newWindow);
 }
 
 export function registerCommand(

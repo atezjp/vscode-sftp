@@ -1,3 +1,7 @@
+## 1.16.6 - 2026-03-08
+* Add compatibility fallbacks for Cursor and Antigravity by broadening config discovery and activation conditions.
+* Guard optional Git and workbench integrations so the extension remains usable in VS Code compatible editors.
+
 ## 1.16.5 - 2026-03-08
 * Finalize the publisher metadata under `atezjp` and update Marketplace links to the lowercase publisher namespace.
 * Remove the `onCommand:sftp.config` activation event and publish the source state as a tagged release.
