@@ -1,6 +1,6 @@
 {
   "extension.displayName": "SFTP Japanese",
-  "extension.description": "Remote Explorer、差分表示、保存時アップロードに対応した SFTP / FTP 同期拡張。",
+  "extension.description": "VS Code / Cursor / Antigravity で `.vscode/sftp.json` を共通利用できる SFTP / FTP 同期拡張。Remote Explorer、差分表示、保存時アップロード対応。",
   "view.activitybar.title": "SFTP",
   "view.remoteExplorer.name": "エクスプローラー",
   "config.title": "sftp 設定",

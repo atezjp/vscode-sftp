@@ -12,6 +12,8 @@
 - UI とドキュメントを日本語で利用可能
 - VS Code / Cursor / Antigravity のどれでも `.vscode/sftp.json` を共通で利用可能
 
+現在の公開版では、SSH 切断時の後始末を安定化し、`password` の省略時と空文字指定時の扱いも分かりやすく整理しています。
+
 このフォークは、元の著作権表記とライセンスを維持しつつ、日本語化、配布整備、日本語ユーザー向けの導入しやすさを重視しています。
 
 （メンテ終了した [liximomo の SFTP プラグイン](https://github.com/liximomo/vscode-sftp.git) を起点とし、その後 [@Natizyskunk](https://github.com/Natizyskunk/) により保守されてきた系譜のフォークです。）
@@ -22,8 +24,6 @@
 - 元の Marketplace ページ: https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp
 
 Cursor や Antigravity で Marketplace から見つからない場合は、GitHub Releases の VSIX を直接インストールしてください。
-
-✳ このフォークへの issue や pull request は歓迎です。投稿時は、このフォークの [テンプレート](https://github.com/atezjp/vscode-sftp/issues/new/choose) を利用してください。
 
 ## このフォークの特徴
 
