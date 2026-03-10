@@ -11,6 +11,7 @@ let MAX_OPEN_FD_NUM = 222;
 export default class SSHClient extends RemoteClient {
   private sftp: any;
   private hoppingClients: SSHClient[];
+  private isEnding: boolean = false;
   private _opendFdNum: number = 0;
   private _queuedFdRequireCall: Array<(...args: any[]) => any> = [];
 
@@ -36,6 +37,8 @@ export default class SSHClient extends RemoteClient {
     connectOption: ConnectOption,
     config: Config
   ): Promise<void> {
+    this.isEnding = false;
+
     const { hop, ...option } = connectOption;
 
     let lastOption: ConnectOption = option;
@@ -296,13 +299,15 @@ export default class SSHClient extends RemoteClient {
         });
       }
 
+      const handleDisconnect = () => this.end();
+
       client
         .on('ready', resolve)
         .on('error', err => {
           reject(new Error(`[${option.host}]: ${err.message}`));
         })
-        .on('close', this.end())
-        .on('end', this.end())
+        .on('close', handleDisconnect)
+        .on('end', handleDisconnect)
         .connect({
           keepaliveInterval: 1000 * 30, // 30 secs, original
           // keepaliveInterval: 1000 * 600, // 10 mins
@@ -354,6 +359,11 @@ export default class SSHClient extends RemoteClient {
   }
 
   end() {
+    if (this.isEnding) {
+      return;
+    }
+
+    this.isEnding = true;
     this._client.end();
 
     if (this.hoppingClients) {
