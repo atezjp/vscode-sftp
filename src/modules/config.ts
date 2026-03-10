@@ -21,7 +21,7 @@ const configScheme = {
   port: Joi.number().integer(),
   connectTimeout: Joi.number().integer(),
   username: Joi.string().required(),
-  password: nullable(Joi.string()),
+  password: nullable(Joi.string().allow('')),
 
   agent: nullable(Joi.string()),
   privateKeyPath: nullable(Joi.string()),

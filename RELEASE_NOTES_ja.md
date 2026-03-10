@@ -1,19 +1,20 @@
-# atezjp SFTP v1.16.9 リリースノート
+# atezjp SFTP v1.16.10 リリースノート
 
-このリリースは、初心者向け公開ページの追加と、Cursor での拡張起動まわりの安定化を主な目的としています。
+このリリースは、SSH 切断時の後始末を安定させつつ、`password` 設定の扱いを分かりやすくすることを主な目的としています。
 
 ## 変更概要
 
-- `version` を `1.16.9` に更新
-- 別ドメイン公開用の初心者向け HTML を `web/index.html` として追加
-- VS Code / Cursor / Antigravity で `.vscode/sftp.json` を共通利用する形に整理
-- `ssh2` を拡張へ同梱し、Cursor で `sftp.config` が出ない原因だった起動失敗を修正
+- `version` を `1.16.10` に更新
+- SSH 切断イベントのハンドラ登録を修正し、`close` / `end` が重なっても終了処理が多重実行されにくいよう改善
+- 設定バリデーションで `password: ""` を許可
+- `password` を省略した場合と `""` を明示した場合の違いが分かるよう、README / ガイド / Web FAQ を補足
 
 ## 動作確認
 
 - `npm run compile` 成功
 - `npm test` 成功
   - 42 tests passed
+- `npx @vscode/vsce package` 成功
 
 ## 注意
 
