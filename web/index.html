@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SFTP Japanese かんたんガイド</title>
+  <meta
+    name="description"
+    content="SFTP Japanese の初心者向けガイド。VS Code、Cursor、Antigravity での導入、設定、最初の接続、日常的な使い方をわかりやすくまとめています。">
+  <meta property="og:title" content="SFTP Japanese かんたんガイド">
+  <meta
+    property="og:description"
+    content="SFTP Japanese の初心者向けガイド。最初の設定から日常操作までを 1 ページで確認できます。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://at-ez.net/extensions/sftp/">
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1a2c;
+      --panel: rgba(15, 28, 48, 0.86);
+      --panel-strong: rgba(18, 35, 59, 0.96);
+      --line: rgba(140, 195, 255, 0.18);
+      --text: #ecf5ff;
+      --muted: #a9bfd7;
+      --accent: #64d2ff;
+      --accent-strong: #8effc1;
+      --warning: #ffd580;
+      --code: #0b1523;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(100, 210, 255, 0.18), transparent 30%),
+        radial-gradient(circle at 85% 10%, rgba(142, 255, 193, 0.12), transparent 22%),
+        linear-gradient(180deg, #08111d 0%, #07111f 55%, #091523 100%);
+      font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    code,
+    pre {
+      font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+    }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 40px 0 28px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 24px auto auto calc(50% + 140px);
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(100, 210, 255, 0.15), transparent 65%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 0 22px rgba(100, 210, 255, 0.45);
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-main {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(100, 210, 255, 0.09);
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      max-width: 820px;
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 19px);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .button-primary {
+      color: #04111b;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      border-color: transparent;
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .hero-note {
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .mini-card {
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .mini-card h2,
+    .mini-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .mini-list,
+    .check-list,
+    .step-list,
+    .command-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .section {
+      padding: 18px 0 10px;
+    }
+
+    .section-head {
+      margin: 0 0 18px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 8px;
+      font-size: clamp(26px, 3vw, 38px);
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 26px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 21px;
+    }
+
+    .card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .step-list li,
+    .check-list li,
+    .command-list li,
+    .mini-list li {
+      margin-bottom: 8px;
+    }
+
+    pre {
+      margin: 0;
+      padding: 18px;
+      border-radius: 16px;
+      overflow: auto;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--code);
+      color: #d8ebff;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .info-item {
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .info-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-strong);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .command-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .command-table th,
+    .command-table td {
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .command-table th {
+      color: var(--accent-strong);
+      font-size: 14px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .command-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .callout {
+      padding: 20px;
+      border-left: 4px solid var(--warning);
+      border-radius: 16px;
+      background: rgba(255, 213, 128, 0.08);
+      color: #ffe9bf;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      border-radius: 16px;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-box {
+      padding: 20px 22px;
+    }
+
+    @media (max-width: 920px) {
+      .hero-card,
+      .grid-2,
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .hero-side,
+      .card {
+        padding: 22px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        line-height: 1.65;
+      }
+
+      .wrap {
+        width: min(calc(100% - 20px), var(--max));
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .command-table th,
+      .command-table td {
+        padding: 12px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>SFTP Japanese Beginner Guide</span>
+        </div>
+        <nav>
+          <a href="#quick-start">最短スタート</a>
+          <span aria-hidden="true"> / </span>
+          <a href="#commands">よく使うコマンド</a>
+          <span aria-hidden="true"> / </span>
+          <a href="#trouble">困ったとき</a>
+        </nav>
+      </div>
+
+      <div class="hero-card">
+        <section class="panel hero-main">
+          <div class="eyebrow">初心者向け 1 ページガイド</div>
+          <h1>SFTP Japanese を<br>最短で使い始める</h1>
+          <p class="lead">
+            VS Code、Cursor、Antigravity で使える `SFTP Japanese` の導入ガイドです。
+            最初の設定ファイル作成から、ダウンロード開始、保存時アップロード、日常操作までを
+            できるだけ迷わず進められるようにまとめています。
+          </p>
+          <div class="cta-row">
+            <a class="button button-primary" href="#quick-start">最短 5 ステップを見る</a>
+            <a class="button button-secondary" href="https://marketplace.visualstudio.com/items?itemName=atezjp.sftp-ja">Marketplace</a>
+            <a class="button button-secondary" href="https://github.com/atezjp/vscode-sftp/releases">VSIX リリース</a>
+          </div>
+          <div class="hero-note">
+            初回は、空のローカルフォルダを開いて <code>SFTP: Download Project</code> から始めると安全です。
+            既存ファイルの上書き事故を減らせます。
+          </div>
+        </section>
+
+        <aside class="panel hero-side">
+          <section class="mini-card">
+            <h2>対応エディタ</h2>
+            <ul class="mini-list">
+              <li>VS Code</li>
+              <li>Cursor</li>
+              <li>Antigravity</li>
+            </ul>
+          </section>
+
+          <section class="mini-card">
+            <h3>設定ファイルの場所</h3>
+            <ul class="mini-list">
+              <li><code>.vscode/sftp.json</code></li>
+              <li><code>.cursor/sftp.json</code></li>
+              <li><code>.antigravity/sftp.json</code></li>
+            </ul>
+          </section>
+
+          <section class="mini-card">
+            <h3>まず用意する情報</h3>
+            <ul class="mini-list">
+              <li>ホスト名または IP</li>
+              <li>接続方式: <code>sftp</code> / <code>ftp</code></li>
+              <li>ポート番号</li>
+              <li>ユーザー名</li>
+              <li>パスワードまたは秘密鍵</li>
+              <li>リモートフォルダ</li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="quick-start" class="section">
+      <div class="section-head">
+        <h2>最短 5 ステップ</h2>
+        <p>はじめて使うときは、まずこの流れだけ押さえれば十分です。</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel card">
+          <h3>1. ローカルフォルダを開く</h3>
+          <ol class="step-list">
+            <li>同期したいプロジェクト用フォルダを開きます。</li>
+            <li>リモートから先に取得したい場合は、空フォルダを使うのがおすすめです。</li>
+          </ol>
+        </article>
+
+        <article class="panel card">
+          <h3>2. 設定ファイルを作る</h3>
+          <ol class="step-list">
+            <li>コマンドパレットを開きます。</li>
+            <li><code>SFTP: Config</code> を実行します。</li>
+            <li>エディタに応じて設定ファイルが作成または表示されます。</li>
+          </ol>
+        </article>
+
+        <article class="panel card">
+          <h3>3. 最小構成を入力する</h3>
+          <p>最初は下のような基本設定で始められます。</p>
+          <pre><code>{
+  "name": "My Server",
+  "host": "example.com",
+  "protocol": "sftp",
+  "port": 22,
+  "username": "your-user",
+  "remotePath": "/var/www/project",
+  "uploadOnSave": false
+}</code></pre>
+        </article>
+
+        <article class="panel card">
+          <h3>4. まずは Download Project</h3>
+          <p>
+            空フォルダで始めたなら、<code>SFTP: Download Project</code> を最初に実行するのが安全です。
+            リモート側の内容をローカルに持ってきてから編集を始められます。
+          </p>
+        </article>
+
+        <article class="panel card">
+          <h3>5. 編集してアップロードする</h3>
+          <ul class="check-list">
+            <li>1 ファイルだけ送るなら <code>SFTP: Upload Active File</code></li>
+            <li>自動同期したいなら <code>uploadOnSave: true</code></li>
+            <li>差分確認したいなら <code>SFTP: Diff</code></li>
+          </ul>
+        </article>
+
+        <article class="panel card">
+          <h3>パスワードは省略可能</h3>
+          <p>
+            <code>password</code> を設定ファイルに書かなくても使えます。
+            省略した場合は接続時に入力を求められます。秘密情報をファイルに残したくない場合はこちらがおすすめです。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>設定ファイルの考え方</h2>
+        <p>まずは「どのローカルフォルダを、どのリモートフォルダと対応させるか」を決めるだけで使い始められます。</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel card">
+          <h3>最低限必要な項目</h3>
+          <ul class="check-list">
+            <li><code>host</code>: サーバー名または IP</li>
+            <li><code>protocol</code>: <code>sftp</code> または <code>ftp</code></li>
+            <li><code>port</code>: たとえば SFTP は <code>22</code></li>
+            <li><code>username</code>: 接続ユーザー名</li>
+            <li><code>remotePath</code>: 同期したいリモートフォルダ</li>
+          </ul>
+        </article>
+
+        <article class="panel card">
+          <h3>よくある追加設定</h3>
+          <pre><code>{
+  "uploadOnSave": true,
+  "ignore": [
+    ".vscode",
+    ".cursor",
+    ".antigravity",
+    ".git",
+    "node_modules"
+  ]
+}</code></pre>
+        </article>
+      </div>
+
+      <div class="info-strip">
+        <div class="info-item">
+          <strong>VS Code</strong>
+          <div><code>.vscode/sftp.json</code></div>
+        </div>
+        <div class="info-item">
+          <strong>Cursor</strong>
+          <div><code>.cursor/sftp.json</code></div>
+        </div>
+        <div class="info-item">
+          <strong>Antigravity</strong>
+          <div><code>.antigravity/sftp.json</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>最初におすすめの使い方</h2>
+        <p>慣れるまでは、手動操作と確認を優先すると事故を減らせます。</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel card">
+          <h3>リモートの内容を先に持ってきたい</h3>
+          <ul class="check-list">
+            <li>空フォルダを開く</li>
+            <li><code>SFTP: Config</code> で接続設定を書く</li>
+            <li><code>SFTP: Download Project</code> を実行</li>
+            <li>ローカルで編集を開始</li>
+          </ul>
+        </article>
+
+        <article class="panel card">
+          <h3>ローカルの完成物を先に送りたい</h3>
+          <ul class="check-list">
+            <li>既存プロジェクトフォルダを開く</li>
+            <li><code>SFTP: Config</code> で接続設定を書く</li>
+            <li><code>SFTP: Diff</code> で差分確認</li>
+            <li><code>SFTP: Upload Project</code> を実行</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="callout" style="margin-top: 18px;">
+        本番環境に直接つなぐ場合は、いきなり <code>uploadOnSave: true</code> にせず、
+        最初は手動アップロードと差分確認から始めるのがおすすめです。
+      </div>
+    </section>
+
+    <section id="commands" class="section">
+      <div class="section-head">
+        <h2>よく使うコマンド</h2>
+        <p>最初の 1 週間でよく触るコマンドだけに絞っています。</p>
+      </div>
+
+      <div class="panel card">
+        <table class="command-table">
+          <thead>
+            <tr>
+              <th>コマンド</th>
+              <th>用途</th>
+              <th>最初に使うタイミング</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>SFTP: Config</code></td>
+              <td>設定ファイルを作成または開く</td>
+              <td>導入直後</td>
+            </tr>
+            <tr>
+              <td><code>SFTP: Download Project</code></td>
+              <td>リモート全体をローカルへ取得</td>
+              <td>空フォルダから始めるとき</td>
+            </tr>
+            <tr>
+              <td><code>SFTP: Upload Project</code></td>
+              <td>ローカル全体をリモートへ送信</td>
+              <td>ローカルが先に完成しているとき</td>
+            </tr>
+            <tr>
+              <td><code>SFTP: Upload Active File</code></td>
+              <td>今のファイルだけ送る</td>
+              <td>小さく確認したいとき</td>
+            </tr>
+            <tr>
+              <td><code>SFTP: Download Active File</code></td>
+              <td>今のファイルのリモート版を取得</td>
+              <td>上書き確認や復元時</td>
+            </tr>
+            <tr>
+              <td><code>SFTP: Diff</code></td>
+              <td>ローカルとリモートの差分確認</td>
+              <td>本番反映前</td>
+            </tr>
+            <tr>
+              <td><code>SFTP: Sync Local -&gt; Remote</code></td>
+              <td>ローカル基準で同期</td>
+              <td>複数ファイルをまとめて反映したいとき</td>
+            </tr>
+            <tr>
+              <td><code>SFTP: Sync Remote -&gt; Local</code></td>
+              <td>リモート基準で同期</td>
+              <td>サーバー側変更を取り込みたいとき</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Remote Explorer の使いどころ</h2>
+        <p>サイドバーからリモートの状態を見ながら作業したい人向けです。</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel card">
+          <h3>できること</h3>
+          <ul class="check-list">
+            <li>リモートファイルを一覧表示</li>
+            <li>ファイル内容の確認</li>
+            <li>ローカルにダウンロードして編集</li>
+            <li>フォルダ単位のアップロード / ダウンロード</li>
+            <li>リモート上でファイル / フォルダ作成や削除</li>
+          </ul>
+        </article>
+
+        <article class="panel card">
+          <h3>表示されない場合</h3>
+          <p>
+            エディタによってはサイドバー導線が見えづらいことがあります。
+            その場合でも、コマンドパレットから主要コマンドは実行できます。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="trouble" class="section">
+      <div class="section-head">
+        <h2>困ったときの確認ポイント</h2>
+        <p>まずは次の項目を順番に見ていくと原因を絞りやすいです。</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel card">
+          <h3>接続できない</h3>
+          <ul class="check-list">
+            <li><code>host</code>, <code>protocol</code>, <code>port</code>, <code>username</code> が正しいか</li>
+            <li><code>remotePath</code> が実在するか</li>
+            <li>パスワードまたは秘密鍵が正しいか</li>
+            <li>サーバー側で接続元 IP 制限がないか</li>
+          </ul>
+        </article>
+
+        <article class="panel card">
+          <h3>設定ファイルが作られない</h3>
+          <ul class="check-list">
+            <li>コマンドパレットから <code>SFTP: Config</code> を実行したか</li>
+            <li>ワークスペースとしてフォルダを開いているか</li>
+            <li><code>.vscode</code>, <code>.cursor</code>, <code>.antigravity</code> のどこにできたか確認したか</li>
+          </ul>
+        </article>
+
+        <article class="panel card">
+          <h3>同期結果が想定と違う</h3>
+          <ul class="check-list">
+            <li>初回は <code>Diff</code> で差分確認する</li>
+            <li><code>ignore</code> の設定を見直す</li>
+            <li>空フォルダから <code>Download Project</code> でやり直す</li>
+          </ul>
+        </article>
+
+        <article class="panel card">
+          <h3>ログを見る</h3>
+          <p>
+            うまくいかないときは、出力パネルの <code>SFTP</code> ログを見るのが最短です。
+            接続エラーやパス不一致の情報が出ることがあります。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>よくある質問</h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>パスワードを設定ファイルに書かずに使えますか？</summary>
+          <p>使えます。<code>password</code> を省略すると、接続時に入力を求められます。</p>
+        </details>
+        <details>
+          <summary>Cursor でも使えますか？</summary>
+          <p>使えます。設定ファイルは <code>.cursor/sftp.json</code> に作成できます。</p>
+        </details>
+        <details>
+          <summary>Antigravity でも使えますか？</summary>
+          <p>使えます。設定ファイルは <code>.antigravity/sftp.json</code> に作成できます。</p>
+        </details>
+        <details>
+          <summary>まず何から始めるのが安全ですか？</summary>
+          <p>空フォルダを開いて <code>SFTP: Config</code> を作り、<code>SFTP: Download Project</code> から始めるのがおすすめです。</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="panel footer-box">
+        <p>
+          配布先:
+          <a href="https://marketplace.visualstudio.com/items?itemName=atezjp.sftp-ja">Marketplace</a>
+          /
+          <a href="https://github.com/atezjp/vscode-sftp/releases">GitHub Releases</a>
+        </p>
+        <p>
+          このページは <code>SFTP Japanese</code> の初心者向け公開ページとして、
+          手動配布用に単体 HTML で構成しています。
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
