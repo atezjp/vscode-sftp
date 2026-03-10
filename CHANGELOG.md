@@ -1,3 +1,7 @@
+## 1.16.9 - 2026-03-10
+* Add a standalone beginner guide HTML page under `web/` for publishing on a separate site.
+* Use the same `.vscode/sftp.json` file across supported editors and bundle `ssh2` so Cursor can activate the extension reliably.
+
 ## 1.16.8 - 2026-03-08
 * Fix config discovery so Cursor and Antigravity prefer their own editor-specific `sftp.json` locations.
 * Limit config reload detection to supported config paths so saving the config reliably refreshes the active SFTP service.

@@ -1,13 +1,13 @@
-# atezjp SFTP v1.16.8 リリースノート
+# atezjp SFTP v1.16.9 リリースノート
 
-このリリースは、Cursor / Antigravity で `config` が効きにくい問題を修正することを主な目的としています。
+このリリースは、初心者向け公開ページの追加と、Cursor での拡張起動まわりの安定化を主な目的としています。
 
 ## 変更概要
 
-- `version` を `1.16.8` に更新
-- Cursor / Antigravity では、使っているエディタ向けの `sftp.json` を優先して探索するよう修正
-- 対応済みの設定パスだけを設定ファイルとして扱うよう見直し
-- 設定ファイル保存後の再読み込みが安定して反映されるよう改善
+- `version` を `1.16.9` に更新
+- 別ドメイン公開用の初心者向け HTML を `web/index.html` として追加
+- VS Code / Cursor / Antigravity で `.vscode/sftp.json` を共通利用する形に整理
+- `ssh2` を拡張へ同梱し、Cursor で `sftp.config` が出ない原因だった起動失敗を修正
 
 ## 動作確認
 
