@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as tmp from 'tmp';
 import * as vscode from 'vscode';
-import { CONGIF_FILENAME } from '../constants';
+import { CONGIF_FILENAME, CONFIG_PATHS } from '../constants';
 import { upath } from '../core';
 
 export function isValidFile(uri: vscode.Uri) {
@@ -9,8 +9,13 @@ export function isValidFile(uri: vscode.Uri) {
 }
 
 export function isConfigFile(uri: vscode.Uri) {
-  const filename = path.basename(uri.fsPath);
-  return filename === CONGIF_FILENAME;
+  const workspaceFolder = vscode.workspace.getWorkspaceFolder(uri);
+  if (!workspaceFolder) {
+    return path.basename(uri.fsPath) === CONGIF_FILENAME;
+  }
+
+  const relativePath = path.relative(workspaceFolder.uri.fsPath, uri.fsPath);
+  return CONFIG_PATHS.some(configPath => path.normalize(configPath) === path.normalize(relativePath));
 }
 
 export function fileDepth(file: string) {

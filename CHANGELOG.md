@@ -1,3 +1,7 @@
+## 1.16.8 - 2026-03-08
+* Fix config discovery so Cursor and Antigravity prefer their own editor-specific `sftp.json` locations.
+* Limit config reload detection to supported config paths so saving the config reliably refreshes the active SFTP service.
+
 ## 1.16.7 - 2026-03-08
 * Add a Japanese quick start guide and link it from the main documentation entry points.
 * Include Japanese documentation files in the packaged extension so the local guide links remain available after installation.

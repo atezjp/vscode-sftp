@@ -7,6 +7,7 @@ import {
   CONFIG_PATHS,
   CURSOR_VENDOR_FOLDER,
   ANTIGRAVITY_VENDOR_FOLDER,
+  CONGIF_FILENAME,
 } from '../constants';
 import { reportError } from '../helper';
 import { showTextDocument } from '../host';
@@ -133,23 +134,28 @@ function getConfigPath(basePath) {
 function getPreferredConfigPath(basePath) {
   const appName = vscode.env.appName.toLowerCase();
   if (appName.includes('cursor')) {
-    return path.join(basePath, CURSOR_VENDOR_FOLDER, path.basename(CONFIG_PATH));
+    return path.join(basePath, CURSOR_VENDOR_FOLDER, CONGIF_FILENAME);
   }
   if (appName.includes('antigravity')) {
-    return path.join(basePath, ANTIGRAVITY_VENDOR_FOLDER, path.basename(CONFIG_PATH));
+    return path.join(basePath, ANTIGRAVITY_VENDOR_FOLDER, CONGIF_FILENAME);
   }
   return getConfigPath(basePath);
 }
 
+function getConfigCandidates(basePath) {
+  const preferredConfigPath = getPreferredConfigPath(basePath);
+  const fallbackConfigPaths = CONFIG_PATHS.map(relativeConfigPath => path.join(basePath, relativeConfigPath));
+  return [preferredConfigPath].concat(fallbackConfigPaths.filter(candidate => candidate !== preferredConfigPath));
+}
+
 async function resolveConfigPath(basePath) {
-  for (const relativeConfigPath of CONFIG_PATHS) {
-    const absoluteConfigPath = path.join(basePath, relativeConfigPath);
+  for (const absoluteConfigPath of getConfigCandidates(basePath)) {
     if (await fse.pathExists(absoluteConfigPath)) {
       return absoluteConfigPath;
     }
   }
 
-  return getPreferredConfigPath(basePath);
+  return getConfigCandidates(basePath)[0];
 }
 
 export function validateConfig(config) {
