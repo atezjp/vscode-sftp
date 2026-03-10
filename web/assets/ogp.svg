@@ -1,0 +1,62 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="86" y1="40" x2="1094" y2="598" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1727"/>
+      <stop offset="1" stop-color="#09111D"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(205 118) rotate(29.165) scale(315.161 224.231)">
+      <stop stop-color="#64D2FF" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#64D2FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(975 126) rotate(145.466) scale(261.3 197.418)">
+      <stop stop-color="#8EFFC1" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#8EFFC1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="780" y1="170" x2="1038" y2="438" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#132540"/>
+      <stop offset="1" stop-color="#0B1626"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="839" y1="188" x2="1016" y2="364" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#64D2FF"/>
+      <stop offset="1" stop-color="#8EFFC1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glowA)"/>
+  <rect width="1200" height="630" fill="url(#glowB)"/>
+  <rect x="56" y="56" width="1088" height="518" rx="36" fill="rgba(12,24,42,0.72)" stroke="rgba(140,195,255,0.12)" stroke-width="2"/>
+
+  <g opacity="0.95">
+    <rect x="96" y="100" width="182" height="42" rx="21" fill="rgba(100,210,255,0.10)" stroke="rgba(100,210,255,0.20)"/>
+    <text x="126" y="127" fill="#8EFFC1" font-size="20" font-family="'Hiragino Sans','Noto Sans JP','Yu Gothic UI',sans-serif" font-weight="700" letter-spacing="0.08em">
+      BEGINNER GUIDE
+    </text>
+  </g>
+
+  <text x="96" y="232" fill="#ECF5FF" font-size="76" font-family="'Hiragino Sans','Noto Sans JP','Yu Gothic UI',sans-serif" font-weight="700">
+    SFTP Japanese
+  </text>
+  <text x="96" y="316" fill="#ECF5FF" font-size="60" font-family="'Hiragino Sans','Noto Sans JP','Yu Gothic UI',sans-serif" font-weight="700">
+    K“_“D¹¬¤É
+  </text>
+  <text x="96" y="396" fill="#A9BFD7" font-size="28" font-family="'Hiragino Sans','Noto Sans JP','Yu Gothic UI',sans-serif">
+    VS CodeCursorAntigravity gH‹
+  </text>
+  <text x="96" y="438" fill="#A9BFD7" font-size="28" font-family="'Hiragino Sans','Noto Sans JP','Yu Gothic UI',sans-serif">
+    SFTP á5nÃQ 1 Úü¸¬¤É
+  </text>
+
+  <g>
+    <rect x="96" y="484" width="232" height="54" rx="27" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="126" y="518" fill="#A9BFD7" font-size="24" font-family="'Hiragino Sans','Noto Sans JP','Yu Gothic UI',sans-serif">
+      at-ez.net/extensions/sftp
+    </text>
+  </g>
+
+  <g>
+    <rect x="760" y="132" width="292" height="292" rx="44" fill="url(#mark)"/>
+    <rect x="784" y="156" width="244" height="244" rx="34" fill="url(#card)"/>
+    <path d="M846 218H980V236H846V218ZM846 267H958V285H846V267ZM846 316H924V334H846V316Z" fill="#A9BFD7"/>
+    <path d="M939 316L981 274L939 232" stroke="#8EFFC1" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
