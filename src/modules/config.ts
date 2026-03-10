@@ -5,9 +5,6 @@ import * as Joi from 'joi';
 import {
   CONFIG_PATH,
   CONFIG_PATHS,
-  CURSOR_VENDOR_FOLDER,
-  ANTIGRAVITY_VENDOR_FOLDER,
-  CONGIF_FILENAME,
 } from '../constants';
 import { reportError } from '../helper';
 import { showTextDocument } from '../host';
@@ -132,13 +129,6 @@ function getConfigPath(basePath) {
 }
 
 function getPreferredConfigPath(basePath) {
-  const appName = vscode.env.appName.toLowerCase();
-  if (appName.includes('cursor')) {
-    return path.join(basePath, CURSOR_VENDOR_FOLDER, CONGIF_FILENAME);
-  }
-  if (appName.includes('antigravity')) {
-    return path.join(basePath, ANTIGRAVITY_VENDOR_FOLDER, CONGIF_FILENAME);
-  }
   return getConfigPath(basePath);
 }
 

@@ -10,7 +10,7 @@
 - 更新前にローカルとリモートを差分確認
 - 保存時アップロード、watcher、複数プロファイルに対応
 - UI とドキュメントを日本語で利用可能
-- Cursor / Antigravity では `.cursor/sftp.json` や `.antigravity/sftp.json` でも設定可能
+- VS Code / Cursor / Antigravity のどれでも `.vscode/sftp.json` を共通で利用可能
 
 このフォークは、元の著作権表記とライセンスを維持しつつ、日本語化、配布整備、日本語ユーザー向けの導入しやすさを重視しています。
 

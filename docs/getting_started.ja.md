@@ -28,14 +28,13 @@ VS Code だけでなく、Cursor / Antigravity でも同じ流れで使えます
 
 コマンドパレットを開いて `SFTP: Config` を実行します。
 
-設定ファイルは、使っているエディタに応じて次の場所に作られます。
+設定ファイルは、使っているエディタに関係なく共通で次の場所に作成・利用できます。
 
-- VS Code: `.vscode/sftp.json`
-- Cursor: `.cursor/sftp.json`
-- Antigravity: `.antigravity/sftp.json`
+- 共通: `.vscode/sftp.json`
 
 既存ファイルがあれば、それを自動的に開きます。  
-見つからない場合は、新しい設定ファイルを作成します。
+見つからない場合は、新しい設定ファイルを作成します。  
+過去バージョンで作成した `.cursor/sftp.json` や `.antigravity/sftp.json` も互換用に読み込めますが、今後は `.vscode/sftp.json` を使うのがおすすめです。
 
 ## 4. 最小構成を書き込む
 
