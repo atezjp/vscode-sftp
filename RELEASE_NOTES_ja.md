@@ -1,13 +1,13 @@
-# atezjp SFTP v1.16.10 リリースノート
+# atezjp SFTP v1.16.11 リリースノート
 
-このリリースは、SSH 切断時の後始末を安定させつつ、`password` 設定の扱いを分かりやすくすることを主な目的としています。
+このリリースは、README と Marketplace 説明文の見せ方を整理し、対応エディタや共通設定の利点が最初に伝わるようにすることを主な目的としています。
 
 ## 変更概要
 
-- `version` を `1.16.10` に更新
-- SSH 切断イベントのハンドラ登録を修正し、`close` / `end` が重なっても終了処理が多重実行されにくいよう改善
-- 設定バリデーションで `password: ""` を許可
-- `password` を省略した場合と `""` を明示した場合の違いが分かるよう、README / ガイド / Web FAQ を補足
+- `version` を `1.16.11` に更新
+- `README.md` / `README.ja.md` 冒頭に、現行公開版の改善点が伝わる短い案内を追加
+- 不要になった issue / pull request 案内文を README から削除
+- Marketplace の短い説明文を更新し、VS Code / Cursor / Antigravity で `.vscode/sftp.json` を共通利用できる点を明確化
 
 ## 動作確認
 
